@@ -1,0 +1,30 @@
+﻿@using LibraryManagementSystems.Models.Entity
+@model List<Activities>
+@{
+    ViewBag.Title = "MemberBookHistory";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>User Name: @ViewBag.Carry</h2>
+<table class="table table-danger">
+    <tr>
+        <th>Id</th>
+        <th>Book Name</th>
+        <th>Publisher</th>
+        <th>Purchase Date</th>
+        <th>Returned Date</th>
+        
+
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.Books.BookName</td>
+    <td>@item.Books.Publisher</td>
+    <td>@Convert.ToDateTime(item.PurchaseDate).ToString("dd/MM/yyyy")</td>
+    <td>@Convert.ToDateTime(item.ReturnedDate).ToString("dd/MM/yyyy")</td>
+</tr>
+    }
+</table>
+

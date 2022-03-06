@@ -1,0 +1,39 @@
+﻿@using LibraryManagementSystems.Models.Entity
+@model List<Authors>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<br />
+<table class="table table-striped">
+
+    <tr style="background-color:#60ea26">
+        <th>ID</th>
+        <th>FİRSTNAME</th>
+        <th>LASTNAME</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+        <th>AUTHOR BOOKS</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.AuthorFirstName</td>
+            <td>@item.AuthorLastName</td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteAuthor", new { id = item.Id }, new
+                {
+                    @class = "btn btn-danger",
+           onclick = "return confirm('Do you want to delete object?')"
+                })
+        </td>
+        <td><a href="/Authors/AuthorGet/@item.Id" class="btn btn-success"> UPDATE</a></td>
+        <td><a href="/Authors/AuthorBooks/@item.Id" class="btn btn-default" style="background-color:#255cce;color:white"> BOOKS OF AUTHOR</a></td>
+    </tr>
+}
+
+</table>
+<a href="/Authors/AddAuthor/" class="btn btn-info"> ADD NEW AUTHOR</a>
+

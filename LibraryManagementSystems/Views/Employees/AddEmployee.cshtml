@@ -1,0 +1,15 @@
+﻿@model LibraryManagementSystems.Models.Entity.Employees
+@{
+    ViewBag.Title = "AddEmployee";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <br />
+    <br />
+    <label>Add New Employee</label> <br />
+    @Html.TextBoxFor(x => x.EmployeeFullName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.EmployeeFullName, "", new { @style = "color:red" })<br /> <br />
+    <button class="btn btn-info">&nbsp; Add&nbsp;</button>
+</form>
+

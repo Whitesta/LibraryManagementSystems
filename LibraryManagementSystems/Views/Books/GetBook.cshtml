@@ -1,0 +1,62 @@
+﻿@model LibraryManagementSystems.Models.Entity.Books
+@{
+    ViewBag.Title = "GetBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateBook", "Books", FormMethod.Post))
+{
+<div class="form-group">
+    <div style="margin-top:15px"></div>
+    <div>
+        <label>ID</label>
+        @Html.TextBoxFor(y => y.Id, new { @class = "form-control" })
+        <div style="margin-bottom:15px"></div>
+    </div>
+    <div style="margin-top:15px"></div>
+    <div>
+        <label>Book Name</label>
+        @Html.TextBoxFor(y => y.BookName, new { @class = "form-control" })
+        <div style="margin-bottom:15px"></div>
+    </div>
+    <div style="margin-top:15px"></div>
+    <div>
+        <label>Category</label>
+        @Html.DropDownListFor(x => x.Categories.Id, (List<SelectListItem>)ViewBag.Carry, new { @class = "form-control" })<br />
+        <div style="margin-bottom:15px"></div>
+    </div>
+    <div style="margin-top:15px"></div>
+    <div>
+        <label>Author</label>
+        @Html.DropDownListFor(x => x.Authors.Id, (List<SelectListItem>)ViewBag.Carry2, new { @class = "form-control" })<br />
+        <div style="margin-bottom:15px"></div>
+    </div>
+    <div style="margin-top:15px"></div>
+    <div>
+        <label>Publication</label>
+        @Html.TextBoxFor(y => y.PublicationYear, new { @class = "form-control" })
+        <div style="margin-bottom:15px"></div>
+    </div>
+    <div style="margin-top:15px"></div>
+    <div>
+        <label>Publisher</label>
+        @Html.TextBoxFor(y => y.Publisher, new { @class = "form-control" })
+        <div style="margin-bottom:15px"></div>
+    </div>
+    <div style="margin-top:15px"></div>
+    <div>
+        <label>Page</label>
+        @Html.TextBoxFor(y => y.Page, new { @class = "form-control" })
+        <div style="margin-bottom:15px"></div>
+    </div>
+    <div>
+        <label>Book Foto</label>
+        @Html.TextBoxFor(y => y.BookFoto, new { @class = "form-control" })
+        <div style="margin-bottom:15px"></div>
+    </div>
+    <div style="margin-top:15px"></div>
+
+    <button class="btn btn-warning"> UPDATE THE BOOK INFORMATION</button>
+</div>
+}
+

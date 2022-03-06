@@ -1,0 +1,35 @@
+﻿@using LibraryManagementSystems.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Users>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Id </th>
+        <th>First Name </th>
+        <th>Last Name </th>
+        <th>School </th>
+        <th>Delete </th>
+        <th>Update </th>
+        <th>Book History </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>  
+            <td>@item.School</td>
+            <td><a href="/Members/DeleteMember/@item.Id" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Members/UpdateMember/@item.Id" class="btn btn-success">Update</a></td>
+            <td><a href="/Members/MemberBookHistory/@item.Id" class="btn btn-default" style="background-color:#0773c1;color:white">Book History</a></td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new {page}))
+<a href="/Members/AddMember/" class="btn btn-info">Add New Member Information</a>
+

@@ -1,0 +1,82 @@
+﻿
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+body {font-family: "Lato", sans-serif;}
+
+.sidebar {
+  height: 100%;
+  width: 240px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 240px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+
+        <a href="/Categories/Index/"><i class="fa fa-fw fa-list"></i> &nbsp; CATEGORIES</a>
+        <a href="/Books/Index/"><i class="fa fa-fw fa-book"></i> &nbsp; BOOKS</a>
+        <a href="/Authors/Index/"><i class="fa fa-fw fa-pencil"></i> &nbsp; AUTHORİES</a>
+        <a href="/Members/Index"><i class="fa fa-fw fa-user"></i> &nbsp; MEMBERS</a>
+        <a href="/Employees/Index/"><i class="fa fa-fw fa-user"></i> &nbsp; EMPLOYEES</a>
+        @if (User.IsInRole("A"))
+        {
+        <a href="/Borrow/GiveBorrow/"><i class="fa fa-fw fa-arrow-right"></i> &nbsp; BORROW A BOOK</a>
+        <a href="/Borrow/Index/"><i class="fa fa-fw fa-arrow-left"></i> &nbsp; RETURN A BOOK</a>
+        }
+        <a href="/Statistics/Index/"><i class="fa fa-fw fa-sort"></i> &nbsp; STATİSTİCS</a>
+        <a href="/Statistics/Weather/"><i class="fa fa-fw fa-cloud"></i> &nbsp; WEATHER</a>
+        <a href="/Statistics/WeatherCard/"><i class="fa fa-fw fa-plus"></i> &nbsp; WEATHERCARD</a>
+        <a href="/Annotations/Index/"><i class="fa fa-fw fa-phone"></i> &nbsp; Annotation</a>
+        <a href="/Transactions/Index/"><i class="fa fa-fw fa-dashboard"></i> &nbsp; TRANSACTIONS</a>
+        <a href="/Statistics/Galery/"><i class="fa fa-fw fa-image"></i> &nbsp; GALERY</a>
+        <a href="/Charts/Index/"><i class="fa fa-fw fa-bar-chart"></i> &nbsp; Charts</a>
+        <a href="/Settings/Index2/"><i class="fa fa-fw fa-clone"></i> &nbsp; Settings</a>
+        <a href="/Statistics/LinqCards/"><i class="fa fa-fw fa-id-card"></i> &nbsp; LinqCards</a>
+        <a href="/AdminLogin/LogOut/"><i class="fa fa-fw fa-close"></i> &nbsp; EXİT</a>
+
+
+    </div>
+
+    <div class="main">
+        @RenderBody()
+    </div>
+
+</body>
+</html>

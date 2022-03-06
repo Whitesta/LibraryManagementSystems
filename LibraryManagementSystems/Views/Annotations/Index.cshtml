@@ -1,0 +1,45 @@
+﻿@using LibraryManagementSystems.Models.Entity
+@model List<Annotations>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    string colorof = "";
+}
+
+<h2>Annotatoins</h2>
+<table class="table table-bordered">
+  <tr>
+      <th>Annotation No</th>
+      <th>Categories</th>
+      <th>Date</th>
+      <th>Delete</th>
+    
+      <th>Details</th>
+  </tr>
+    @foreach (var item in Model)
+    {
+        if (item.Categories=="New Book")
+        {
+            colorof = "bg-info text-white";
+        }
+        if (item.Categories == "About Borrow Book")
+        {
+            colorof = "bg-success text-white";
+        }
+        if (item.Categories == "Lost Books")
+        {
+            colorof = "bg-warning text-white";
+        }
+<tr >
+    <td>@item.Id</td>
+    <td>@item.Categories</td>
+    <td>@Convert.ToDateTime(item.Date).ToString("dd/MM/yyyy")</td>
+    <td><a href="/Annotations/Delete/@item.Id/" class="btn btn-danger">Delete</a></td>
+ 
+    <td><a href="/Annotations/AnnotationDetail/@item.Id" class="btn btn-default" style="background-color:#0094ff;color:white">Detail</a></td>
+
+</tr>
+    }
+</table>
+<a href="/Annotations/AddAnnotation/" class="btn btn-info"> Add New Annotation</a>
+

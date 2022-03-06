@@ -1,0 +1,27 @@
+﻿@model LibraryManagementSystems.Models.Entity.Annotations
+@{
+    ViewBag.Title = "AnnotationDetail";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("Update", "Annotations", FormMethod.Post)) { 
+
+    <br />
+    <div class="form-group">
+        <label>Id</label>
+        @Html.TextBoxFor(x => x.Id, new { @class = "form-control" })
+        <br />
+        <label>Annotation Category</label>
+        @Html.TextBoxFor(x => x.Categories, new { @class = "form-control" })
+        <br />
+        <label>Annotation Content</label>
+        @Html.TextAreaFor(x => x.Contents, new { @class = "form-control" })
+        <br />
+        <label>Date</label>
+        @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    </div>
+
+    <button class="btn btn-info"> Update</button>
+
+}
+

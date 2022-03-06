@@ -1,0 +1,44 @@
+﻿@model LibraryManagementSystems.Models.Entity.Books
+@{
+    ViewBag.Title = "AddBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Add Book</h2>
+<form class="form-group" method="post">
+    <div style="margin-top:15px"></div>
+    <br />
+    <div>
+        <label>Book Name</label> <br />
+        @Html.TextBoxFor(x => x.BookName, new { @class = "form-control" }) <br />
+    </div>
+    <div>
+        <label> Category</label> <br />
+        @Html.DropDownListFor(x => x.Categories.Id, (List<SelectListItem>)ViewBag.Carry, new { @class = "form-control" })<br />
+    </div>
+    <div>
+        <label>Author</label> <br />
+        @Html.DropDownListFor(x => x.Authors.Id, (List<SelectListItem>)ViewBag.Carry2, new { @class = "form-control" })<br />
+    </div>
+    <div>
+        <label>Publication Year</label> <br />
+        @Html.TextBoxFor(x => x.PublicationYear, new { @class = "form-control" }) <br />
+    </div>
+    <div>
+        <label>Publisher</label> <br />
+        @Html.TextBoxFor(x => x.Publisher, new { @class = "form-control" }) <br />
+    </div>
+    <div>
+        <label>Page</label> <br />
+        @Html.TextBoxFor(x => x.Page, new { @class = "form-control" }) <br />
+    </div>
+    <div>
+        <label>Book Foto</label> <br />
+        @Html.TextBoxFor(x => x.BookFoto, new { @class = "form-control" }) <br />
+    </div>
+
+    <button class="btn btn-info"> &nbsp; Add &nbsp;</button>
+
+    <input type="hidden" name="Status" value="True" />
+</form>
+

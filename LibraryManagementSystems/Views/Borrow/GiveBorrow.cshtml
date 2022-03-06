@@ -1,0 +1,43 @@
+﻿@model LibraryManagementSystems.Models.Entity.Activities
+@{
+    ViewBag.Title = "GiveBorrow";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>GiveBorrow</h2>
+<br />
+<form class="form-group" method="post">
+
+    <br />
+
+    <div>
+        <label>Borrower Name</label>
+        @Html.DropDownListFor(x => x.Users.Id, (List<SelectListItem>)ViewBag.UserFullName, new { @class = "form-control" })
+    </div>
+    <br />
+
+    <div>
+        <label>Book Name</label>
+        @Html.DropDownListFor(x => x.Books.Id, (List<SelectListItem>)ViewBag.BookName, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <label>Employee</label>
+        @Html.DropDownListFor(x => x.Employees.Id, (List<SelectListItem>)ViewBag.EmployeeFullName, new { @class = "form-control" })
+    </div>
+    <br />
+
+    <div>
+        <label>PurchaseDate</label>
+        <input type="text" class="form-control" name="PurchaseDate" value="@DateTime.Now.ToShortDateString()" />
+    </div>
+    <br />
+    <div>
+        <label>Normal Return Date</label>
+        <input type="text" class="form-control" name="ReturnDate" value="@DateTime.Now.AddDays(15).ToShortDateString()" />
+    </div>
+    <br />
+    <button class="btn btn-group" style="background-color:#18a88d; color:white">Borrow Book</button>
+    <input type="hidden" value="false" name="ActionResult" />
+</form>
+

@@ -1,0 +1,24 @@
+﻿@model LibraryManagementSystems.Models.Entity.Categories
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateCategory", "Categories", FormMethod.Post))
+{
+<div class="form-group">
+    <br />
+
+    @Html.LabelFor(c => c.Id)
+    @Html.TextBoxFor(c => c.Id, new { @class = "form-control" })
+    <br />
+    <label>CategoryName</label>
+    @Html.TextBoxFor(c => c.CategoryName, new { @class = "form-control" })
+    <br />
+    
+</div>
+<button class="btn btn-info"> UPDATE </button>
+}
+
+
+

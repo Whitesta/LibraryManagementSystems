@@ -1,0 +1,70 @@
+﻿@using LibraryManagementSystems.Models.Entity
+@model List<Admin>
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>UserName</th>
+        <th>Authority</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.UserMail</td>
+            <td>@item.Authority</td>
+            <td>
+                <a class="btn btn-info btn-sm" href="/Settings/UpdateAdmin/@item.Id">
+                    <i class="fas fa-pencil-alt"></i>
+                    Edit
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-danger btn-sm" href="/Settings/DeleteAdmin/@item.Id">
+                    <i class="fas fa-trash"></i>
+                    Delete
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Add New Admin</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"> Admin Add Panel</h2>
+            </div>
+            <form action="/Settings/AddAdmin/"method="post">
+                <div class="modal-body">
+                    <label>User Email</label>
+                    <input type="email" name="UserMail" class="form-control" />
+                    <br />
+                    <label>Password</label>
+                    <input type="text" name="Password" class="form-control" />
+                    <br />
+                    <label>Authority</label>
+                    <input type="text" name="Authority" class="form-control" />
+                    <br />
+                    <button class="btn btn-info">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

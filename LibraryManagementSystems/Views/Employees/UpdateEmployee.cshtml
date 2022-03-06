@@ -1,0 +1,23 @@
+﻿@model LibraryManagementSystems.Models.Entity.Employees
+@{
+    ViewBag.Title = "UpdateEmployee";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateEmployee", "Employees", FormMethod.Post))
+{
+<div class="form-group">
+    <br />
+
+    @Html.LabelFor(c => c.Id)
+    @Html.TextBoxFor(c => c.Id, new { @class = "form-control" })
+    <br />
+    <label>Employee </label>
+    @Html.TextBoxFor(c => c.EmployeeFullName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.EmployeeFullName, "", new { @style = "color:red" })<br /> 
+   
+
+</div>
+    <button class="btn btn-info"> UPDATE </button>
+}
+

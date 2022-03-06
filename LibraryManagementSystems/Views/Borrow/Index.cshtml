@@ -1,0 +1,39 @@
+﻿@using LibraryManagementSystems.Models.Entity
+@model List<Activities>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Id </th>
+        <th>Book Name </th>
+        <th>Employee  </th>
+        <th>User</th>
+        <th>Purchase Date</th>
+        <th> Normal Return Date</th>
+        <th>Returned Date </th>
+        <th>Action Result</th>
+       <th>Return Book</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.Books.BookName</td>
+    <td>@item.Employees.EmployeeFullName</td>
+    <td>@item.Users.FirstName&nbsp;@item.Users.LastName</td>
+    <td>@Convert.ToDateTime(item.PurchaseDate).ToString("dd/MM/yyyy")</td>
+    <td>@Convert.ToDateTime(item.ReturnDate).ToString("dd/MM/yyyy")</td>
+    <td>@Convert.ToDateTime(item.ReturnedDate).ToString("dd/MM/yyyy")</td>
+    <td>@item.ActionResult</td>
+    <td><a href="/Borrow/ReturnBook/@item.Id" class="btn btn-default" style="background-color:#2abd9d;color:white">Return Book</a></td>
+
+</tr>
+    }
+</table>
+

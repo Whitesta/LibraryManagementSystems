@@ -1,0 +1,32 @@
+﻿@using LibraryManagementSystems.Models.Entity
+@model List<Annotations>
+@{
+    ViewBag.Title = "Annotations";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+  
+}
+
+<h2>Annotations</h2>
+<table class="table table-bordered">
+    <tr>
+       
+        <th>Category</th>
+        <th>Content</th>
+        <th>Date</th>
+        
+
+       
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Categories</td>
+            <td>@item.Contents</td>
+            <td>@Convert.ToDateTime(item.Date).ToString("dd/MM/yyyy")</td>
+           
+
+           
+        </tr>
+    }
+</table>
+

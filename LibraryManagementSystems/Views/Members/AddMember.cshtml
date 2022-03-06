@@ -1,0 +1,37 @@
+﻿@model LibraryManagementSystems.Models.Entity.Users
+@{
+    ViewBag.Title = "AddMember";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Add New Member</h2>
+<form class="form-group" method="post">
+    <br />
+    <br />
+    <label>FirstName</label> <br />
+    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.FirstName, "", new { @style = "color:red" })<br /><br />
+    <label>LastName</label> <br />
+    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.LastName, "", new { @style = "color:red" })<br /><br />
+    <label>Mail</label> <br />
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    <br />
+    <label>UserName</label> <br />
+    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.UserName, "", new { @style = "color:red" })<br /><br />
+    <label>Password</label> <br />
+    @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Password, "", new { @style = "color:red" })<br /><br />
+    <label>Telephone</label> <br />
+    @Html.TextBoxFor(x => x.Telephone, new { @class = "form-control" })
+    <br />
+    <label>Foto</label> <br />
+    @Html.TextBoxFor(x => x.Foto, new { @class = "form-control" })
+    <br />
+    <label>School</label> <br />
+    @Html.TextBoxFor(x => x.School, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">&nbsp; Add&nbsp;</button>
+</form>
+

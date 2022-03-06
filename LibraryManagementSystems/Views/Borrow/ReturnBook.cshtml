@@ -1,0 +1,40 @@
+﻿@model LibraryManagementSystems.Models.Entity.Activities
+@{
+    ViewBag.Title = "ReturnBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateBorrow", "Borrow", FormMethod.Post))
+{
+<div class="form-group">
+    <br />
+
+    <label>Id</label>
+    @Html.TextBoxFor(c => c.Id, new { @class = "form-control" })
+    <br />
+    <label>Book Name </label>
+    @Html.TextBoxFor(c => c.Books.BookName, new { @class = "form-control" })
+    <br />
+    <label>Employee</label>
+    @Html.TextBoxFor(c => c.Employees.EmployeeFullName, new { @class = "form-control" })
+    <br />
+    <label>User</label>
+    @Html.TextBoxFor(c => c.Users.FirstName, new { @class = "form-control" })
+    <br />
+    <label>Purchase</label>
+    @Html.TextBoxFor(c => c.PurchaseDate, "{0:dd.MM.yyyy}", new { @class = "form-control" })
+    <br />
+    <label>Normal Return Date</label>
+    @Html.TextBoxFor(c => c.ReturnDate, "{0:dd.MM.yyyy}", new { @class = "form-control" })
+    <br />
+    <label>Returned Date</label>
+    <input type="text" class="form-control" name="ReturnedDate" value="@DateTime.Now.ToShortDateString()" />
+    <br />
+    <label>Late Date</label>
+    <input type="text" class="form-control" id="LateDate" value="@ViewBag.Carry" />
+
+
+</div>
+    <button class="btn btn-group" style="background-color:#18a88d; color:white">Get Return The Book</button>
+}
+
